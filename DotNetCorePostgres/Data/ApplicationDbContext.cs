@@ -10,6 +10,9 @@ namespace DotNetCorePostgres.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Foo> Foos { get; set; }
+        public DbSet<Bar> Bars { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -21,6 +24,7 @@ namespace DotNetCorePostgres.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+
         }
     }
 }
