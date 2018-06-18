@@ -15,7 +15,7 @@ PoC to try to use PostGresql with .NET Core 2.1.
  11. Run "Update-Database" in NuGet Package Console
  
 ### Notes
- - Can use a Connection String Builder to only add a partial connection string and supply a password with the Secret Manager
+ - Secret Manager stores secret for DbPassword. The password is not encrypted.
 
 ### Issues
  - Cannot update Microsoft.AspNetCore.All to 2.1.0 from 2.0.8 (Not sure why; it just hangs)
