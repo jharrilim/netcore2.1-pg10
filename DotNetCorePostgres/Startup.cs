@@ -26,8 +26,13 @@ namespace DotNetCorePostgres
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            var connectionString = new Npgsql.NpgsqlConnectionStringBuilder(Configuration.GetConnectionString("DefaultConnection"))
+            {
+                Password = Configuration["DbPassword"]
+            }.ToString();
+
+            services.AddEntityFrameworkNpgsql()
+                .AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
