@@ -1,6 +1,8 @@
 # netcore2.1-pg10
 PoC to try to use PostGresql with .NET Core 2.1.
 
+## Prerequisite
+ - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300)
 ## Steps to Reproduce
  1. Create an ASP.NET Core 2.1 MVC Web Project in Visual Studio
  2. Change Authentication to allow support for Individual User Accounts
@@ -16,6 +18,3 @@ PoC to try to use PostGresql with .NET Core 2.1.
  
 ### Notes
  - Secret Manager stores secret for DbPassword. The password is not encrypted.
-
-### Issues
- - Cannot update Microsoft.AspNetCore.All to 2.1.0 from 2.0.8 (Not sure why; it just hangs)
